@@ -40,7 +40,9 @@ $$
     for (i = 1; i <= OCCURRENCE; i++) {
         instr = str.search(regex);
         if (instr === -1) break;
-        str = str.substring(instr);  // Next iteration for occurrence
+        if (i != OCCURRENCE) { // No substring on final occurrence
+            str = str.substring(instr);  // Next iteration for occurrence
+        }
         cursor = cursor + instr + 1;
     }
     
